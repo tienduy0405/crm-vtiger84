@@ -139,7 +139,7 @@ $default_password = '';
 $create_default_user = false;
 
 //Master currency name
-$currency_name = 'USA, Dollars';
+$currency_name = 'Vietnam, Dong';
 
 // default charset
 // default charset default value = 'UTF-8' or 'ISO-8859-1'
