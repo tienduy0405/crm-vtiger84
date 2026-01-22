@@ -93,6 +93,7 @@ class Vtiger_Popup_View extends Vtiger_Footer_View {
 		$searchKey = $request->get('search_key');
 		$searchValue = $request->get('search_value');
 		$currencyId = $request->get('currency_id');
+		$cf_city = $request->get('cf_city');
 		$relatedParentModule = $request->get('related_parent_module');
 		$relatedParentId = $request->get('related_parent_id');
 				$moduleModel = Vtiger_Module_Model::getInstance($moduleName);
@@ -158,6 +159,9 @@ class Vtiger_Popup_View extends Vtiger_Footer_View {
 			$listViewModel->set('src_field', $sourceField);
 			$listViewModel->set('src_record', $sourceRecord);
 		}
+        if(!empty($cf_city)) {
+            $listViewModel->set('cf_city', $cf_city);
+        }
 		if((!empty($searchKey)) && (!empty($searchValue)))  {
 			$listViewModel->set('search_key', $searchKey);
 			$listViewModel->set('search_value', $searchValue);

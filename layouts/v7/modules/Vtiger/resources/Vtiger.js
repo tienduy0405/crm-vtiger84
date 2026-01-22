@@ -938,6 +938,10 @@ Vtiger.Class('Vtiger_Index_Js', {
 		var parentElem = thisInstance.getParentElement(jQuery(e.target));
 
 		var params = this.getPopUpParams(parentElem);
+		if (app.getModuleName() == "Accounts"){
+			var cf_city = jQuery('input[name="cf_city"]').val();
+			params.cf_city = cf_city;
+		}
 		params.view = 'Popup';
 
 		var isMultiple = false;

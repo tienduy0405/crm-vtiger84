@@ -66,8 +66,14 @@ class Wards_ListView_Model extends Vtiger_ListView_Model {
         }
         if ($sourceModule == "Accounts" && $moduleName == "Wards"){
             $source_record = $this->get('src_record');
-            $src_RecordModel = Vtiger_Record_Model::getInstanceById($source_record, $sourceModule);
-            $cf_city = $src_RecordModel->get('cf_city');
+            $cf_city = "";
+            if (isRecordExists($source_record)){
+                $src_RecordModel = Vtiger_Record_Model::getInstanceById($source_record, $sourceModule);
+                $cf_city = $src_RecordModel->get('cf_city');
+            }
+            if ($this->get('cf_city')){
+                $cf_city = $this->get('cf_city');
+            }
             $listQuery .= " AND vtiger_wards.city_id = ".$cf_city;
         }
         $startIndex = $pagingModel->getStartIndex();
